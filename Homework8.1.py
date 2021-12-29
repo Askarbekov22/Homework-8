@@ -29,10 +29,9 @@ def registr_user():
         delete_choose = input("Есть ли у вас выполненные дни?"
                               "Если есть то напишите день недели,если нету то напишите нет:")
         sql.execute("DELETE FROM users WHERE Day == ?", (delete_choose,))
-        if delete_choose == "нет":
+        if delete_choose != "нет":
             for value in sql.execute("SELECT * FROM users"):
                 print(value)
-        if delete_choose == "нет":
             continue
         choose = input("Хотите продолжить записывать свои планы? да или нет")
         if choose == "да":
